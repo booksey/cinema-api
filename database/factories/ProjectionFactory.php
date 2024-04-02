@@ -17,7 +17,11 @@ class ProjectionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'projection_time' =>  $this->faker->dateTimeBetween('now', '+20 years'),
+            'capacity' => rand(1, 50),
+            'film_id' => rand(1, 10),
+            'created_at' => $this->faker->dateTimeBetween('-50 years', 'now'),
+            'updated_at' => $this->faker->dateTime('now'),
         ];
     }
 }

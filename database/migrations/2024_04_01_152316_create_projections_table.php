@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('projections', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->timestamp('projection_time');
+            $table->dateTime('projection_time');
             $table->unsignedInteger('capacity');
             $table->unsignedBigInteger('film_id');
 

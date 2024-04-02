@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->longText('description');
-            $table->string('rating')->nullable();
-            $table->string('language');
+            $table->longText('description')->nullable();
+            $table->integer('rating')->nullable();
+            $table->string('language')->default('hungarian');
             $table->longText('cover_url')->nullable();
         });
     }

@@ -16,8 +16,16 @@ class FilmFactory extends Factory
      */
     public function definition(): array
     {
+        $ratings = [null, 6, 12, 16, 18];
+        $languages = ['hungarian', 'english'];
         return [
-            //
+            'title' =>  $this->faker->words(5, true),
+            'description' => $this->faker->sentence(10, true),
+            'rating' => $ratings[array_rand($ratings)],
+            'language' => $languages[array_rand($languages)],
+            'cover_url' => $this->faker->url(),
+            'created_at' => $this->faker->dateTimeBetween('-30 years', 'now'),
+            'updated_at' => $this->faker->dateTime('now'),
         ];
     }
 }

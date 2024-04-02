@@ -11,7 +11,7 @@ class StoreProjectionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreProjectionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'projection_time' => 'required|date',
+            'capacity' => 'required|integer',
+            'film_id' => 'required|integer',
         ];
     }
 }

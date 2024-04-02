@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Film;
 use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
 class FilmController extends Controller
 {
@@ -14,15 +15,7 @@ class FilmController extends Controller
      */
     public function index()
     {
-        return Film::all();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return response()->json(Film::all());
     }
 
     /**
@@ -30,7 +23,7 @@ class FilmController extends Controller
      */
     public function store(StoreFilmRequest $request)
     {
-        //
+        return response()->json(Film::create($request->all()), Response::HTTP_CREATED);
     }
 
     /**
@@ -38,15 +31,7 @@ class FilmController extends Controller
      */
     public function show(Film $film)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Film $film)
-    {
-        //
+        return response()->json(Film::findOrFail($film->id));
     }
 
     /**
@@ -54,7 +39,8 @@ class FilmController extends Controller
      */
     public function update(UpdateFilmRequest $request, Film $film)
     {
-        //
+        $film->update($request->all());
+        return response()->json($film, Response::HTTP_CREATED);
     }
 
     /**
@@ -62,6 +48,6 @@ class FilmController extends Controller
      */
     public function destroy(Film $film)
     {
-        //
+        return response()->json($film->delete(), Response::HTTP_NO_CONTENT);
     }
 }
