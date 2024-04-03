@@ -15,6 +15,6 @@ class ProjectionSeeder extends Seeder
      */
     public function run(): void
     {
-        Projection::factory()->count(10)->create();
+        Projection::factory()->count(5)->create();
     }
 }
