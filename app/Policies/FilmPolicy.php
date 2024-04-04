@@ -4,8 +4,10 @@ namespace App\Policies;
 
 use App\Models\Film;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
+/**
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ */
 class FilmPolicy
 {
     /**

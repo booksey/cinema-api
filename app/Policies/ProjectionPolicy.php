@@ -4,8 +4,10 @@ namespace App\Policies;
 
 use App\Models\Projection;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
+/**
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ */
 class ProjectionPolicy
 {
     /**
