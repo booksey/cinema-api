@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="Customer API">
+    <rule ref="phpcs-coding-standard.xml"/>
+    <rule ref="phpcs-security.xml"/>
+    <file>app</file>
+    <file>config</file>
+</ruleset>
